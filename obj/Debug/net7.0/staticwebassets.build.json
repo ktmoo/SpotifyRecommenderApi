@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Fp21kCBqz3ywUtby75Jj2y5piwDQUivZjGi7qKt5e7Q=",
+  "Source": "SpotifyRecommenderApi",
+  "BasePath": "_content/SpotifyRecommenderApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
