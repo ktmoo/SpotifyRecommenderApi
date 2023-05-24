@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace SpotifyRecommenderApi.Models
 {
-    public class Item
+    public class Tracks
     {
-        public Track Track { get; set; }
+        public IEnumerable<Item> Items { get; set; }
     }
 }

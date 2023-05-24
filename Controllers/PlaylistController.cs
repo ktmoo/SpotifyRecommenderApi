@@ -38,5 +38,32 @@ namespace SpotifyRecommenderApi.Controllers
                 }
             }
         }
+        [HttpGet]
+        [Route("{playlistID}/track")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetPlaylistItemsAsync(string token, string playlistID)
+        {
+            var url = $"https://api.spotify.com/v1/playlists/{playlistID}/tracks";
+
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    var items = Newtonsoft.Json.JsonConvert.DeserializeObject<Tracks>(responseString);
+
+                    return Ok(items);
+                }
+                else
+                {
+                    return BadRequest("playlist items aren't given");
+                }
+            }
+        }
     }
 }

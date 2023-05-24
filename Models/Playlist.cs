@@ -11,6 +11,5 @@ namespace SpotifyRecommenderApi.Models
         public string Href { get; set; }
         //public IEnumerable<Image> Images { get; set; }
         public string Name { get; set; }
-        public IEnumerable<PlaylistTrackObject> Items { get; set; }
     }
 }
