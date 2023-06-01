@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SpotifyRecommenderApi.Controllers
@@ -44,7 +45,7 @@ namespace SpotifyRecommenderApi.Controllers
 
                     var accessToken = responseData?["access_token"];
 
-                    return Ok(accessToken);
+                    return Ok(JsonSerializer.Serialize(accessToken));
                 }
                 else
                 {

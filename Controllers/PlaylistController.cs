@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
 using SpotifyRecommenderApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +31,7 @@ namespace SpotifyRecommenderApi.Controllers
                     var responseString = await response.Content.ReadAsStringAsync();
                     var playlist = Newtonsoft.Json.JsonConvert.DeserializeObject<Playlist>(responseString);
 
-                    return Ok(playlist);
+                    return Ok(JsonSerializer.Serialize(playlist));
                 }
                 else
                 {
@@ -57,7 +58,7 @@ namespace SpotifyRecommenderApi.Controllers
                     var responseString = await response.Content.ReadAsStringAsync();
                     var items = Newtonsoft.Json.JsonConvert.DeserializeObject<Tracks>(responseString);
 
-                    return Ok(items);
+                    return Ok(JsonSerializer.Serialize(items));
                 }
                 else
                 {
